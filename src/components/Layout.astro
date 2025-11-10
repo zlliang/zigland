@@ -1,0 +1,63 @@
+---
+import VercelWebAnalytics from "@vercel/analytics/astro"
+import VercelSpeedInsights from "@vercel/speed-insights/astro"
+
+import { getTitle, siteTitle } from "@/utils/site"
+
+import "@/styles/main.css"
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const title = getTitle(Astro.props.title)
+const description = Astro.props.description
+const url = new URL(Astro.url.pathname, Astro.site)
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- Favicon -->
+  <!-- <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" /> -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /> -->
+
+  <!-- Inter -->
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+  <!-- SEO, OpenGraph and Twitter -->
+  <link rel="canonical" href={url} />
+  {Boolean(description) && <meta name="description" content={description} />}
+  <meta property="og:site_name" content={siteTitle} />
+  <meta property="og:url" content={url} />
+  <meta property="og:title" content={title} />
+  {Boolean(description) && <meta property="og:description" content={description} />}
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  {Boolean(description) && <meta name="twitter:description" content={description} />}
+  <meta name="twitter:url" content={url} />
+
+  <!-- Title -->
+  <title>Zigland</title>
+</head>
+<body>
+  <div class="flex flex-col min-h-dvh max-w-5xl m-auto px-6">
+    <main class="flex-1">
+      <slot />
+    </main>
+  </div>
+
+  <!-- Vercel -->
+  <VercelWebAnalytics />
+  <VercelSpeedInsights />
+</body>
+</html>
