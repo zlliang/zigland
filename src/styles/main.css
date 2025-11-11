@@ -1,2 +1,188 @@
 @import "tailwindcss";
 @plugin "@iconify/tailwind4";
+
+/* Root */
+
+:root {
+  @apply text-sm sm:text-base;
+}
+
+::selection {
+  @apply bg-amber-100 dark:bg-amber-900;
+}
+
+body {
+  @apply bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200 leading-normal;
+}
+
+/* Font */
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
+}
+
+@supports (font-variation-settings: normal) {
+  @theme {
+    --font-sans: InterVariable, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+}
+
+:root {
+  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+}
+
+/* Icons */
+
+[class*="icon-"] {
+  @apply inline-block size-[1.2em] align-text-bottom scale-95;
+}
+
+/* Title */
+
+h1, h2, h3, h4, h5, h6 {
+  @apply my-4 font-bold;
+}
+
+h1 {
+  @apply text-3xl;
+}
+
+h2 {
+  @apply mt-8 text-2xl;
+}
+
+h3 {
+  @apply mt-8 text-lg;
+}
+
+/* Content */
+
+main > *:last-child {
+  @apply mb-0;
+}
+
+p {
+  @apply mb-4 leading-[1.7];
+}
+
+a {
+  @apply text-amber-600 dark:text-amber-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors;
+}
+
+a.nocolor {
+  @apply text-inherit dark:text-inherit hover:text-inherit dark:hover:text-inherit;
+}
+
+a.secondary {
+  @apply text-inherit dark:text-inherit hover:text-amber-500 dark:hover:text-amber-400;
+}
+
+b, strong {
+  @apply font-bold;
+}
+
+blockquote {
+  @apply pl-[calc(1.75rem-2px)] border-l-2 border-neutral-200 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400;
+}
+
+ul, ol {
+  @apply mb-4 pl-7 leading-[1.7] marker:text-neutral-500 dark:marker:text-neutral-400;
+}
+
+ul {
+  @apply list-disc;
+}
+
+ul ul, ol ul {
+  @apply mb-0 list-[circle];
+}
+
+ul ul ul, ol ul ul, ul ol ul, ol ol ul {
+  @apply mb-0 list-[square];
+}
+
+ol {
+  @apply list-decimal;
+}
+
+ol ol, ul ol {
+  @apply mb-0 list-[lower-roman];
+}
+
+ol ol ol, ul ol ol, ol ul ol, ul ul ol {
+  @apply mb-0 list-[lower-alpha];
+}
+
+hr {
+  @apply relative mb-4 h-auto border-neutral-200 dark:border-neutral-700 overflow-visible;
+}
+
+hr:before {
+  content: "";
+  @apply absolute -top-3 left-0 right-0 mx-auto w-12 block h-6 bg-white dark:bg-neutral-900;
+}
+
+hr:after {
+  content: "";
+  @apply icon-[lucide--waves] absolute -top-[0.65rem] left-0 right-0 mx-auto block h-5 w-5 text-neutral-300 dark:text-neutral-600;
+}
+
+img {
+  @apply mx-auto;
+}
+
+p > img {
+  @apply w-auto max-h-108;
+}
+
+/* Code */
+
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+
+code {
+  @apply px-[0.3em] border border-neutral-200 dark:border-neutral-700 text-sm;
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+  @apply text-[0.9em];
+}
+
+pre {
+  @apply mb-4 px-4 py-3 border border-neutral-200 dark:border-neutral-700 text-sm;
+}
+
+pre code {
+  @apply p-0 border-none;
+}
+
+/* Table */
+
+table {
+  @apply mb-4 mx-auto border-collapse;
+}
+
+tr {
+  @apply border border-neutral-200 dark:border-neutral-700;
+}
+
+tr:nth-child(2n) {
+  @apply bg-neutral-50 dark:bg-neutral-800;
+}
+
+th, td {
+  @apply px-3 py-1 border border-neutral-200 dark:border-neutral-600;
+}
+
+th {
+  @apply bg-neutral-100 dark:bg-neutral-700;
+}
