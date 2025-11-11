@@ -10,6 +10,7 @@
   "dependencies": {
     "@astrojs/vercel": "^9.0.0",
     "@iconify-json/lucide": "^1.2.73",
+    "@iconify-json/material-symbols": "^1.2.44",
     "@iconify-json/simple-icons": "^1.2.58",
     "@iconify/tailwind4": "^1.1.0",
     "@tailwindcss/vite": "^4.1.17",
