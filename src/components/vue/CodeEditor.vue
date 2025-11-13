@@ -23,6 +23,10 @@ const extensions = computed(() => isDark.value ? [oneDark, zig()] : [zig()])
 </template>
 
 <style>
+.cm-scroller {
+  font-family: var(--font-mono) !important;
+}
+
 .cm-focused {
   outline: none !important;
 }
