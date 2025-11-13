@@ -8,9 +8,9 @@ import CodeEditor from "@/components/vue/CodeEditor.vue"
 
 import client from "@/api/client"
 
-import helloWorldSnippet from "@/examples/hello_world.zig?raw"
+import snippet from "@/examples/async_io.zig?raw"
 
-const model = defineModel<string>({ default: helloWorldSnippet })
+const model = defineModel<string>({ default: snippet })
 
 const query = qs.parse(location.search.slice(1))
 if (query.code && typeof query.code === "string") {

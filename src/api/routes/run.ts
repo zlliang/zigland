@@ -23,6 +23,7 @@ export async function* handler({ input }: { input: z.infer<typeof schema> }) {
   const runningSandboxes = list.json.sandboxes.filter(sandbox => sandbox.status === "running")
   if (runningSandboxes.length > 0) {
     yield "==> Using existing running sandbox...\n"
+    
     sandbox = await Sandbox.get({
       teamId: import.meta.env.VERCEL_TEAM_ID,
       projectId: import.meta.env.VERCEL_PROJECT_ID,
@@ -38,6 +39,7 @@ export async function* handler({ input }: { input: z.infer<typeof schema> }) {
       teamId: import.meta.env.VERCEL_TEAM_ID,
       projectId: import.meta.env.VERCEL_PROJECT_ID,
       token: import.meta.env.VERCEL_TOKEN,
+      resources: { vcpus: 4 },
       timeout: 20 * 60 * 1000, // 20 minutes
     })
   }
