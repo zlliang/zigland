@@ -1,0 +1,25 @@
+---
+import Layout from "@/components/Layout.astro"
+import Link from "@/components/Link.astro"
+import Logo from "@/components/Logo.astro"
+import Playground from "@/components/vue/Playground.vue"
+
+import helloWorldSnippet from "@/examples/hello_world.zig?raw"
+---
+
+<Layout>
+  <div class="flex flex-col h-dvh">
+    <header class="shrink-0 flex justify-between items-center h-12 px-6 border-b border-neutral-200 dark:border-neutral-700">
+      <div class="flex items-center gap-1">
+        <Link href="/" class="nocolor">
+          <Logo />
+          <span class="font-bold">Zigland</span>
+        </Link>
+        <span class="ml-2 text-neutral-500 dark:text-neutral-400">Playground</span>
+      </div>
+    </header>
+    <div class="flex-1">
+      <Playground client:only="vue" modelValue={helloWorldSnippet} />
+    </div>
+  </div>
+</Layout>
