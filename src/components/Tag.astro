@@ -1,0 +1,15 @@
+---
+import { cn } from "@/utils/style"
+
+interface Props {
+  icon?: string
+  class?: string
+}
+
+const { icon, class: className } = Astro.props
+---
+
+<span class={cn("inline-block px-1 py-px border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 text-sm", className)}>
+  {icon && <span class={cn(icon, "mr-px")} />}
+  <slot />
+</span>

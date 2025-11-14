@@ -87,7 +87,7 @@ async function copyLink() {
           class="flex items-center gap-1 h-full text-amber-600 dark:text-amber-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
           @click="run"
         >
-          <span class="icon-[lucide--circle-play]" />
+          <span class="icon-[lucide--play]" />
           <span>Run</span>
         </button>
         <button

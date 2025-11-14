@@ -1,27 +1,13 @@
 ---
 import Layout from "@/components/Layout.astro"
-import Link from "@/components/Link.astro"
-import Logo from "@/components/Logo.astro"
 import Playground from "@/components/vue/Playground.vue"
+import Tag from "@/components/Tag.astro"
 ---
 
-<Layout>
-  <div class="flex flex-col h-dvh">
-    <header class="shrink-0 flex justify-between items-center px-4 h-12 border-b border-neutral-200 dark:border-neutral-700">
-      <div class="flex items-center gap-1">
-        <Link href="/" class="nocolor font-display">
-          <Logo />
-          <span class="font-bold">Zigland</span>
-        </Link>
-        <span class="ml-2 text-neutral-500 dark:text-neutral-400 font-display">Playground</span>
-        <div class="flex items-center gap-1 ml-2 px-1 border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 text-sm">
-            <span class="icon-[lucide--sparkles] scale-80!" />
-            <span>Alpha</span>
-          </div>
-      </div>
-    </header>
-    <div class="flex-1">
-      <Playground client:only="vue" />
-    </div>
+<Layout type="fullscreen">
+  <div slot="header-suffix" class="flex items-center gap-2">
+    <span class="text-neutral-500 dark:text-neutral-400 font-display">Playground</span>
+    <Tag icon="icon-[lucide--sparkles]">Alpha</Tag>
   </div>
+  <Playground client:only="vue" />
 </Layout>

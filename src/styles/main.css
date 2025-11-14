@@ -110,6 +110,10 @@ pre, code {
 /* Prose */
 
 .prose {
+  & > *:first-child {
+    @apply mt-0;
+  }
+  
   & > *:last-child {
     @apply mb-0;
   }

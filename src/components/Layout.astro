@@ -4,13 +4,27 @@ import VercelSpeedInsights from "@vercel/speed-insights/astro"
 
 import { getTitle, siteTitle } from "@/utils/site"
 
+import Default from "@/components/layouts/Default.astro"
+import Index from "@/components/layouts/Index.astro"
+import Fullscreen from "@/components/layouts/Fullscreen.astro"
+
 import "@fontsource-variable/outfit"
 import "@/styles/main.css"
 
 interface Props {
+  type?: "default" | "index" | "fullscreen"
   title?: string
   description?: string
 }
+
+const layouts = {
+  default: Default,
+  index: Index,
+  fullscreen: Fullscreen,
+}
+
+const type = Astro.props.type || "default"
+const InnerLayout = layouts[type]
 
 const title = getTitle(Astro.props.title)
 const description = Astro.props.description || "Grow together with Zig."
@@ -60,7 +74,10 @@ const ogImage = new URL("/og.jpg", Astro.site)
   <title>Zigland</title>
 </head>
 <body>
-  <slot />
+  <InnerLayout>
+    <Fragment slot="header-suffix"><slot name="header-suffix" /></Fragment>
+    <slot />
+  </InnerLayout>
 
   <!-- Vercel -->
   <VercelWebAnalytics />

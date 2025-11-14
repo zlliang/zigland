@@ -1,8 +1,16 @@
 ---
 import Link from "@/components/Link.astro"
+
+import { cn } from "@/utils/style"
+
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
 ---
 
-<footer class="mt-24 mb-8 text-sm text-center text-neutral-400 dark:text-neutral-500">
+<footer class={cn("text-xs text-neutral-400 dark:text-neutral-500", className)}>
   <span>2025–PRESENT</span>
   <span class="icon-[lucide--copyright] scale-90" />
   <Link href="https://zlliang.me" class="secondary">Zilong Liang</Link>

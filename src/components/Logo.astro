@@ -1,1 +1,16 @@
-<span class="icon-[material-symbols--flash-on] text-[#F7A41D]" />
+---
+import Link from "@/components/Link.astro"
+
+interface Props {
+  name?: boolean
+  link?: boolean
+}
+
+const { name = true, link = true } = Astro.props
+const Component = link ? Link : "div"
+---
+
+<Component href="/" class="inline-flex items-center gap-1 font-display font-bold nocolor">
+  <span class="icon-[material-symbols--flash-on] text-[#F7A41D]" />
+  {name && <span>Zigland</span>}
+</Component>
