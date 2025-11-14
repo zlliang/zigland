@@ -1,26 +1,54 @@
 ---
 import Layout from "@/components/Layout.astro"
 import Logo from "@/components/Logo.astro"
+import Link from "@/components/Link.astro"
+import Footer from "@/components/Footer.astro"
 ---
 
 <Layout>
-  <div class="flex flex-col min-h-dvh max-w-2xl m-auto px-6">
-    <main class="flex-1 flex flex-col">
-      <div class="flex-1 flex flex-col justify-center items-center">
-        <h1 class="-translate-x-2"><Logo /> Zigland</h1>
-        <p class="font-bold text-neutral-500 dark:text-neutral-400">
-          Grow together with
-          <a href="https://ziglang.org" target="_blank" rel="nofollow noopener noreferrer">Zig</a>.
+  <div class="flex flex-col min-h-dvh max-w-3xl m-auto px-6">
+    <header class="flex flex-col items-center mt-24">
+      <h1 class="-translate-x-2"><Logo /> Zigland</h1>
+      <p class="font-bold text-neutral-500 dark:text-neutral-400">
+        Grow together with
+        <a href="https://ziglang.org" target="_blank" rel="nofollow noopener noreferrer">Zig</a>.
+      </p>
+    </header>
+    <main class="flex-1 mt-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+        <div class="relative">
+          <Link href="/play" class="flex items-center gap-6 px-6 py-4 border border-neutral-200 dark:border-neutral-700 hover:border-amber-200 dark:hover:border-amber-700 hover:bg-amber-50 dark:hover:bg-amber-900 secondary">
+            <span class="icon-[lucide--bird] size-10!" />
+            <div>
+              <div class="font-semibold">Playground</div>
+              <div class="text-sm">Experiment with Zig code in your browser</div>
+            </div>
+          </Link>
+          <div class="flex items-center gap-1 absolute -top-2 -right-2 px-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 text-sm">
+            <span class="icon-[lucide--test-tube-diagonal] scale-80!" />
+            <span>Alpha</span>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>
+          🚧 <strong>Status:</strong> Work in Progress
         </p>
-        <p class="mt-8 text-sm text-neutral-400 dark:text-neutral-500">
+        <p>
           Zigland is your hub for learning and exploring the Zig programming language, and more broadly,
-          system programming. My vision is to build a space that offers a comprehensive tutorial, an
-          interactive playground, a language cheat sheet like
-          <a href="https://cheats.rs" target="_blank" rel="nofollow noopener noreferrer">cheats.rs</a>,
-          and regular posts about Zig and its community. The site is still under development, but I look
-          forward to exploring the Zig world together with you!
+          system programming. The vision is to provide:
+        </p>
+        <ul>
+          <li><strong>Comprehensive Tutorials</strong> — Learn Zig and system programming from the ground up</li>
+          <li><strong>Interactive Playground</strong> — Experiment with Zig code in your browser (inspired by <a href="https://www.typescriptlang.org/play" target="_blank" rel="nofollow noopener noreferrer" class="secondary">typescriptlang.org/play</a>)</li>
+          <li><strong>Language Cheat Sheet</strong> — Quick reference guide (inspired by <a href="https://cheats.rs" target="_blank" rel="nofollow noopener noreferrer" class="secondary">cheats.rs</a>)</li>
+          <li><strong>Newsletters and Posts</strong> — Regular updates about Zig and its ecosystem</li>
+        </ul>
+        <p>
+          The site is still under development. I look forward to exploring the Zig world together with you!
         </p>
       </div>
     </main>
+    <Footer />
   </div>
 </Layout>
