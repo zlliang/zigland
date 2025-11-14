@@ -40,7 +40,7 @@ export async function* handler({ input }: { input: z.infer<typeof schema> }) {
       projectId: import.meta.env.VERCEL_PROJECT_ID,
       token: import.meta.env.VERCEL_TOKEN,
       resources: { vcpus: 4 },
-      timeout: 20 * 60 * 1000, // 20 minutes
+      timeout: 30 * 60 * 1000, // 30 minutes
     })
   }
 
@@ -133,7 +133,7 @@ export async function* handler({ input }: { input: z.infer<typeof schema> }) {
 
   // Output the Zig version
 
-  yield "==> Using Zig version:\n"
+  yield "==> Using Zig version: "
 
   const zigVersionCmd = await sandbox.runCommand({
     cmd: `./${zigDir}/zig`,
