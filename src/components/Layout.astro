@@ -13,7 +13,7 @@ interface Props {
 }
 
 const title = getTitle(Astro.props.title)
-const description = Astro.props.description
+const description = Astro.props.description || "Grow together with Zig."
 const url = new URL(Astro.url.pathname, Astro.site)
 ---
 
@@ -36,21 +36,21 @@ const url = new URL(Astro.url.pathname, Astro.site)
 
   <!-- SEO, OpenGraph and Twitter -->
   <link rel="canonical" href={url} />
-  {Boolean(description) && <meta name="description" content={description} />}
+  <meta name="description" content={description} />
   <meta property="og:site_name" content={siteTitle} />
   <meta property="og:url" content={url} />
   <meta property="og:title" content={title} />
-  {Boolean(description) && <meta property="og:description" content={description} />}
+  <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/og.jpg" />
+  <meta property="og:image" content={`${Astro.site}/og.jpg`} />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="720" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
-  {Boolean(description) && <meta name="twitter:description" content={description} />}
+  <meta name="twitter:description" content={description} />
   <meta name="twitter:url" content={url} />
-  <meta property="twitter:image" content="/og.jpg" />
+  <meta property="twitter:image" content={`${Astro.site}/og.jpg`} />
   <meta property="twitter:image:width" content="1280" />
   <meta property="twitter:image:height" content="720" />
   <meta property="twitter:image:type" content="image/jpeg" />
