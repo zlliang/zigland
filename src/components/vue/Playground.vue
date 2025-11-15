@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, nextTick } from "vue"
 import { SplitterGroup, SplitterPanel, SplitterResizeHandle } from "reka-ui"
-import qs from "qs"
+import { useUrlSearchParams } from "@vueuse/core"
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from "lz-string"
 
 import CodeEditor from "@/components/vue/CodeEditor.vue"
@@ -12,9 +12,10 @@ import snippet from "@/examples/async_io.zig?raw"
 
 const model = defineModel<string>({ default: snippet })
 
-const query = qs.parse(location.search.slice(1))
-if (query.code && typeof query.code === "string") {
-  model.value = decompressFromEncodedURIComponent(query.code)
+const urlParams = useUrlSearchParams()
+
+if (typeof urlParams.code === "string") {
+  model.value = decompressFromEncodedURIComponent(urlParams.code)
 }
 
 const status = ref<"idle" | "running" | "error">("idle")
@@ -44,14 +45,10 @@ async function run() {
 
 async function copyLink() {
   const compressed = compressToEncodedURIComponent(model.value || "")
+  urlParams.code = compressed
 
-  const currentQuery = qs.parse(location.search.slice(1))
-  const newQuery = { ...currentQuery, code: compressed }
-  const url = new URL(location.href)
-  url.search = qs.stringify(newQuery)
   await nextTick()
-  await navigator.clipboard.writeText(url.toString())
-  history.replaceState({}, "", url.toString())
+  await navigator.clipboard.writeText(location.href)
 
   copyLinkStatus.value = "copied"
   setTimeout(() => {
