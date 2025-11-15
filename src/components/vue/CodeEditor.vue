@@ -17,8 +17,9 @@ const extensions = computed(() => isDark.value ? [oneDark, zig()] : [zig()])
       v-model="model"
       placeholder="Code goes here..."
       :extensions="extensions"
-      :tab-size="2"
-      style="height: 100%;" />
+      :tab-size="4"
+      style="height: 100%;"
+    />
   </div>
 </template>
 
