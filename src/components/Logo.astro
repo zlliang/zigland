@@ -10,7 +10,7 @@ const { name = true, link = true } = Astro.props
 const Component = link ? Link : "div"
 ---
 
-<Component href="/" class="inline-flex items-center gap-1 font-display font-bold nocolor">
-  <span class="icon-[material-symbols--flash-on] text-[#F7A41D]" />
+<Component href="/" class="inline-flex items-center gap-[0.4em] font-display font-bold nocolor">
+  <img src="/logo.svg" class="h-[1.1em]" />
   {name && <span>Zigland</span>}
 </Component>
