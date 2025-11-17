@@ -64,10 +64,10 @@ const ogImage = new URL("/og.png", Astro.site)
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:url" content={url} />
   <meta property="twitter:image" content={ogImage} />
   <meta property="twitter:image:width" content="1280" />
   <meta property="twitter:image:height" content="720" />
+  <meta property="og:image:type" content="image/png" />
 
   <!-- Title -->
   <title>{title}</title>
