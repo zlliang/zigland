@@ -16,7 +16,7 @@ export default defineConfig({
       themes: { light: "github-light-default", dark: "github-dark-default" },
     },
     rehypePlugins: [
-      [rehypeExternalLinks, { target: "_blank", rel: ["nofollow", "noopener", "noreferrer"] }],
+      [rehypeExternalLinks, { target: "_blank", rel: ["noopener"] }],
     ],
   },
   devToolbar: {
