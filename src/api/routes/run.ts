@@ -39,7 +39,7 @@ export async function* handler({ input }: { input: z.infer<typeof schema> }) {
       teamId: import.meta.env.VERCEL_TEAM_ID,
       projectId: import.meta.env.VERCEL_PROJECT_ID,
       token: import.meta.env.VERCEL_TOKEN,
-      resources: { vcpus: 2 },
+      resources: { vcpus: 4 },
       timeout: 3 * 60 * 60 * 1000, // 3 hours
     })
   }
