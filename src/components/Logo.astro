@@ -1,6 +1,8 @@
 ---
 import Link from "@/components/Link.astro"
 
+import LogoImage from "@/assets/images/logo.svg"
+
 interface Props {
   name?: boolean
   link?: boolean
@@ -11,6 +13,6 @@ const Component = link ? Link : "div"
 ---
 
 <Component href="/" class="inline-flex items-center gap-[0.4em] font-display font-bold nocolor">
-  <img src="/logo.svg" class="h-[1.1em]" />
+  <LogoImage class="h-[1.1em]" />
   {name && <span>Zigland</span>}
 </Component>
