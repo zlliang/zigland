@@ -60,13 +60,13 @@ async function copyLink() {
 <template>
   <SplitterGroup direction="vertical">
     <SplitterPanel :default-size="70" :min-size="20" class="flex flex-col">
-      <div class="flex-1 overflow-auto border-b border-neutral-200 dark:border-neutral-700">
+      <div class="flex-1 overflow-auto border-b border-neutral-200 dark:border-neutral-800">
         <CodeEditor v-model="model" />
       </div>
-      <div class="shrink-0 flex justify-end items-center gap-4 px-4 h-10 border-b bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700">
+      <div class="shrink-0 flex justify-end items-center gap-4 px-4 h-10 border-b bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800">
         <button
           v-if="copyLinkStatus === 'idle'"
-          class="flex items-center gap-1 h-full text-amber-600 dark:text-amber-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+          class="flex items-center gap-1 h-full text-amber-600 dark:text-amber-400 hover:text-amber-500 transition-colors"
           @click="copyLink"
         >
           <span class="icon-[lucide--copy]" />
@@ -74,14 +74,14 @@ async function copyLink() {
         </button>
         <button
           v-if="copyLinkStatus === 'copied'"
-          class="flex items-center gap-1 h-full text-green-600 dark:text-green-300"
+          class="flex items-center gap-1 h-full text-green-600 dark:text-green-400"
         >
           <span class="icon-[lucide--copy-check]" />
           <span>Link copied</span>
         </button>
         <button
           v-if="status === 'idle'"
-          class="flex items-center gap-1 h-full text-amber-600 dark:text-amber-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+          class="flex items-center gap-1 h-full text-amber-600 dark:text-amber-400 hover:text-amber-500 transition-colors"
           @click="run"
         >
           <span class="icon-[lucide--play]" />
@@ -89,7 +89,7 @@ async function copyLink() {
         </button>
         <button
           v-if="status === 'running'"
-          class="flex items-center gap-1 h-full text-neutral-500 dark:text-neutral-400"
+          class="flex items-center gap-1 h-full text-neutral-500"
         >
           <span class="icon-[svg-spinners--3-dots-scale]" />
           <span>Running</span>

@@ -4,7 +4,7 @@ import Footer from "@/components/Footer.astro"
 ---
 
 <div class="flex flex-col h-dvh">
-  <header class="flex justify-between items-center px-4 h-12 border-b border-neutral-200 dark:border-neutral-700">
+  <header class="flex justify-between items-center px-4 h-12 border-b border-neutral-200 dark:border-neutral-800">
     <div class="flex items-center gap-2">
       <Logo />
       <div><slot name="header-suffix" /></div>
@@ -13,5 +13,5 @@ import Footer from "@/components/Footer.astro"
   <main class="flex-1">
     <slot />
   </main>
-  <Footer class="px-4 py-2 border-t border-neutral-200 dark:border-neutral-700" />
+  <Footer class="px-4 py-2 border-t border-neutral-200 dark:border-neutral-800" />
 </div>
