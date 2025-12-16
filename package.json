@@ -11,6 +11,7 @@
     "@astrojs/vercel": "^9.0.2",
     "@astrojs/vue": "^5.1.3",
     "@codemirror/theme-one-dark": "^6.1.3",
+    "@fontsource-variable/geist-mono": "^5.2.7",
     "@fontsource-variable/outfit": "^5.2.8",
     "@iconify-json/lucide": "^1.2.80",
     "@iconify-json/material-symbols": "^1.2.50",
