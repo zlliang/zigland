@@ -4,7 +4,7 @@
 
 **[zigland.dev](https://zigland.dev)** — Your hub for learning and exploring the Zig programming language, and more broadly, system programming.
 
-🚧 **Status:** Work in Progress
+🚧 **Status:** Not maintained
 
 ## About
 
